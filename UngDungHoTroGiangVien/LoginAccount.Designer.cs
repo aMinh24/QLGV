@@ -32,6 +32,7 @@
             this.titleDN = new System.Windows.Forms.Label();
             this.khungLogin = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkboxRemember = new System.Windows.Forms.CheckBox();
             this.buttonSignIn = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.khungPassword = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@
             this.khungUser = new System.Windows.Forms.Panel();
             this.tenDangNhap = new System.Windows.Forms.Label();
             this.cbUsername = new System.Windows.Forms.ComboBox();
-            this.checkboxRemember = new System.Windows.Forms.CheckBox();
             this.panelTitleDN.SuspendLayout();
             this.khungLogin.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -90,6 +90,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(519, 48);
             this.panel1.TabIndex = 3;
+            // 
+            // checkboxRemember
+            // 
+            this.checkboxRemember.AutoSize = true;
+            this.checkboxRemember.Location = new System.Drawing.Point(20, 16);
+            this.checkboxRemember.Name = "checkboxRemember";
+            this.checkboxRemember.Size = new System.Drawing.Size(119, 20);
+            this.checkboxRemember.TabIndex = 3;
+            this.checkboxRemember.Text = "Remember me";
+            this.checkboxRemember.UseVisualStyleBackColor = true;
             // 
             // buttonSignIn
             // 
@@ -177,20 +187,11 @@
             this.cbUsername.TabIndex = 5;
             this.cbUsername.SelectedIndexChanged += new System.EventHandler(this.cbUsername_SelectedIndexChanged);
             // 
-            // checkboxRemember
-            // 
-            this.checkboxRemember.AutoSize = true;
-            this.checkboxRemember.Location = new System.Drawing.Point(20, 16);
-            this.checkboxRemember.Name = "checkboxRemember";
-            this.checkboxRemember.Size = new System.Drawing.Size(119, 20);
-            this.checkboxRemember.TabIndex = 3;
-            this.checkboxRemember.Text = "Remember me";
-            this.checkboxRemember.UseVisualStyleBackColor = true;
-            // 
             // LoginAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelTitleDN);
             this.Controls.Add(this.khungLogin);
