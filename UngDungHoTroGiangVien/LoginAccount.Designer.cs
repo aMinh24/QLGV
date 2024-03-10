@@ -38,8 +38,9 @@
             this.tBoxPassword = new System.Windows.Forms.TextBox();
             this.matKhau = new System.Windows.Forms.Label();
             this.khungUser = new System.Windows.Forms.Panel();
-            this.tBoxLogin = new System.Windows.Forms.TextBox();
             this.tenDangNhap = new System.Windows.Forms.Label();
+            this.cbUsername = new System.Windows.Forms.ComboBox();
+            this.checkboxRemember = new System.Windows.Forms.CheckBox();
             this.panelTitleDN.SuspendLayout();
             this.khungLogin.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkboxRemember);
             this.panel1.Controls.Add(this.buttonSignIn);
             this.panel1.Controls.Add(this.buttonLogin);
             this.panel1.Location = new System.Drawing.Point(11, 138);
@@ -147,21 +149,13 @@
             // 
             // khungUser
             // 
-            this.khungUser.Controls.Add(this.tBoxLogin);
             this.khungUser.Controls.Add(this.tenDangNhap);
+            this.khungUser.Controls.Add(this.cbUsername);
             this.khungUser.Location = new System.Drawing.Point(11, 10);
             this.khungUser.Margin = new System.Windows.Forms.Padding(4);
             this.khungUser.Name = "khungUser";
             this.khungUser.Size = new System.Drawing.Size(519, 57);
             this.khungUser.TabIndex = 1;
-            // 
-            // tBoxLogin
-            // 
-            this.tBoxLogin.Location = new System.Drawing.Point(148, 17);
-            this.tBoxLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.tBoxLogin.Name = "tBoxLogin";
-            this.tBoxLogin.Size = new System.Drawing.Size(355, 22);
-            this.tBoxLogin.TabIndex = 1;
             // 
             // tenDangNhap
             // 
@@ -173,6 +167,25 @@
             this.tenDangNhap.Size = new System.Drawing.Size(119, 20);
             this.tenDangNhap.TabIndex = 0;
             this.tenDangNhap.Text = "Tên đăng nhập";
+            // 
+            // cbUsername
+            // 
+            this.cbUsername.FormattingEnabled = true;
+            this.cbUsername.Location = new System.Drawing.Point(148, 14);
+            this.cbUsername.Name = "cbUsername";
+            this.cbUsername.Size = new System.Drawing.Size(355, 24);
+            this.cbUsername.TabIndex = 5;
+            this.cbUsername.SelectedIndexChanged += new System.EventHandler(this.cbUsername_SelectedIndexChanged);
+            // 
+            // checkboxRemember
+            // 
+            this.checkboxRemember.AutoSize = true;
+            this.checkboxRemember.Location = new System.Drawing.Point(20, 16);
+            this.checkboxRemember.Name = "checkboxRemember";
+            this.checkboxRemember.Size = new System.Drawing.Size(119, 20);
+            this.checkboxRemember.TabIndex = 3;
+            this.checkboxRemember.Text = "Remember me";
+            this.checkboxRemember.UseVisualStyleBackColor = true;
             // 
             // LoginAccount
             // 
@@ -188,6 +201,7 @@
             this.panelTitleDN.PerformLayout();
             this.khungLogin.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.khungPassword.ResumeLayout(false);
             this.khungPassword.PerformLayout();
             this.khungUser.ResumeLayout(false);
@@ -208,7 +222,8 @@
         private System.Windows.Forms.TextBox tBoxPassword;
         private System.Windows.Forms.Label matKhau;
         private System.Windows.Forms.Panel khungUser;
-        private System.Windows.Forms.TextBox tBoxLogin;
         private System.Windows.Forms.Label tenDangNhap;
+        private System.Windows.Forms.ComboBox cbUsername;
+        private System.Windows.Forms.CheckBox checkboxRemember;
     }
 }

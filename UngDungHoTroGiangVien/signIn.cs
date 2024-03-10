@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UngDungH0oTroGiangVien.DAO;
+using UngDungHoTroGiangVien.DAO;
 
 namespace UngDungHoTroGiangVien
 {
