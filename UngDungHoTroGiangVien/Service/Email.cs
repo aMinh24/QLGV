@@ -16,7 +16,15 @@ public class EMail
             smtp.Port = 587;
             smtp.EnableSsl = true;
             smtp.Credentials = new NetworkCredential(Address, Password);
-            smtp.Send(Address, sendTo, subject, message);
+            smtp.SendAsync(Address, sendTo, subject, message,null);
         }
+    }
+    public static async void sendMailOTP(string to, string OTP)
+    {
+        Task send = new Task(() =>
+        {
+            Send(to, "Verify mail", "Verify your mail with code: " + OTP);
+        });
+        send.Start();
     }
 }

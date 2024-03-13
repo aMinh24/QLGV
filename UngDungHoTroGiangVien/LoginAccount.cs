@@ -10,12 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UngDungHoTroGiangVien.DAO;
+using UngDungHoTroGiangVien.Service;
 
 namespace UngDungHoTroGiangVien
 {
     public partial class LoginAccount : Form
     {
-        List<Credential> _credentialList = new List<Credential>();
         public LoginAccount()
         {
             InitializeComponent();
@@ -23,33 +23,11 @@ namespace UngDungHoTroGiangVien
         }
         public void LoadCredentials()
         {
-            _credentialList = CredentialManager.EnumerateCredentials().ToList();
-            _credentialList = CredentialManager.EnumerateCredentials().Where(x => x.ApplicationName.StartsWith("CredentialAccount")).ToList();
-            cbUsername.DataSource = _credentialList;
+            cbUsername.DataSource = SavePassword.LoadCredential();
             cbUsername.DisplayMember = "UserName";
             cbUsername.SelectedItem = null;
         }
-        private void SaveCredential(string username, string password)
-        {
-            if (checkboxRemember.Checked)
-            {
-                CredentialManager.WriteCredential(
-                applicationName: "CredentialAccount_" + username,
-                userName: username,
-                secret: password,
-                comment: "",
-                persistence: CredentialPersistence.LocalMachine);
-            }
-            else
-            {
-                try
-                {
-                    CredentialManager.DeleteCredential("CredentialAccount_" + username);
-                }
-                catch { }
-            }
-
-        }
+        
         private async void buttonLogin_Click(object sender, EventArgs e)
         {
             //string userNameEmail = tBoxLogin.Text;
@@ -61,11 +39,10 @@ namespace UngDungHoTroGiangVien
             {
                 try
                 {
-                    SaveCredential(userNameEmail, password);
+                    SavePassword.SaveCredential(userNameEmail, password, checkboxRemember.Checked);
                     Random ran = new Random();
                     string OTP = ran.Next(1000, 9999).ToString();
-                    titleDN.Text = "Sent";
-                    sendMail(userNameEmail, OTP);
+                    EMail.sendMailOTP(userNameEmail, OTP);
 
                     VerifyOTP v = new VerifyOTP(OTP);
                     v.Show();
@@ -74,10 +51,6 @@ namespace UngDungHoTroGiangVien
                 {
                     MessageBox.Show("Login fail");
                 }
-                //MessageBox.Show("Login success");
-                //TrangChu t = new TrangChu();
-                //this.Hide();
-                //t.ShowDialog();
             }
             else
             {
@@ -85,15 +58,7 @@ namespace UngDungHoTroGiangVien
 
             }
         }
-        private async void sendMail(string to, string OTP)
-        {
-            Task send = new Task(() =>
-            {
-                EMail.Send(to, "Verify mail", "Verify your mail with code: " + OTP);
-            });
-            send.Start();
-            titleDN.Text = "Done";
-        }
+        
         public bool login(string userName, string password)
         {
             return AccountDAO.Instance.Login(userName, password);
