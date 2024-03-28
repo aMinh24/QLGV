@@ -31,6 +31,16 @@
             this.tabTrangchu = new System.Windows.Forms.TabControl();
             this.tpXemlich = new System.Windows.Forms.TabPage();
             this.tpThongtin = new System.Windows.Forms.TabPage();
+            this.pnlDownload = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pgBDownload = new System.Windows.Forms.ProgressBar();
+            this.btnDownload = new System.Windows.Forms.Button();
+            this.txbLink = new System.Windows.Forms.TextBox();
+            this.pnLoading = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pbUpload = new System.Windows.Forms.ProgressBar();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditInfo = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,13 +61,11 @@
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.dtStart = new System.Windows.Forms.DateTimePicker();
-            this.btnEditInfo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pbUpload = new System.Windows.Forms.ProgressBar();
-            this.pnLoading = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnOpenPDF = new System.Windows.Forms.Button();
             this.tabTrangchu.SuspendLayout();
             this.tpThongtin.SuspendLayout();
+            this.pnlDownload.SuspendLayout();
+            this.pnLoading.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -65,7 +73,6 @@
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
-            this.pnLoading.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabTrangchu
@@ -90,6 +97,10 @@
             // 
             // tpThongtin
             // 
+            this.tpThongtin.Controls.Add(this.btnOpenPDF);
+            this.tpThongtin.Controls.Add(this.pnlDownload);
+            this.tpThongtin.Controls.Add(this.btnDownload);
+            this.tpThongtin.Controls.Add(this.txbLink);
             this.tpThongtin.Controls.Add(this.pnLoading);
             this.tpThongtin.Controls.Add(this.button1);
             this.tpThongtin.Controls.Add(this.btnEditInfo);
@@ -101,6 +112,95 @@
             this.tpThongtin.TabIndex = 1;
             this.tpThongtin.Text = "Thông tin";
             this.tpThongtin.UseVisualStyleBackColor = true;
+            // 
+            // pnlDownload
+            // 
+            this.pnlDownload.Controls.Add(this.label8);
+            this.pnlDownload.Controls.Add(this.pgBDownload);
+            this.pnlDownload.Location = new System.Drawing.Point(724, 384);
+            this.pnlDownload.Name = "pnlDownload";
+            this.pnlDownload.Size = new System.Drawing.Size(200, 83);
+            this.pnlDownload.TabIndex = 7;
+            this.pnlDownload.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1, 49);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(159, 16);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Don\'t close until complete";
+            // 
+            // pgBDownload
+            // 
+            this.pgBDownload.Location = new System.Drawing.Point(0, 22);
+            this.pgBDownload.Name = "pgBDownload";
+            this.pgBDownload.Size = new System.Drawing.Size(160, 23);
+            this.pgBDownload.TabIndex = 3;
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(724, 323);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(160, 44);
+            this.btnDownload.TabIndex = 6;
+            this.btnDownload.Text = "Download";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
+            // txbLink
+            // 
+            this.txbLink.Location = new System.Drawing.Point(724, 263);
+            this.txbLink.Name = "txbLink";
+            this.txbLink.ReadOnly = true;
+            this.txbLink.Size = new System.Drawing.Size(200, 22);
+            this.txbLink.TabIndex = 5;
+            // 
+            // pnLoading
+            // 
+            this.pnLoading.Controls.Add(this.label7);
+            this.pnLoading.Controls.Add(this.pbUpload);
+            this.pnLoading.Location = new System.Drawing.Point(724, 171);
+            this.pnLoading.Name = "pnLoading";
+            this.pnLoading.Size = new System.Drawing.Size(200, 83);
+            this.pnLoading.TabIndex = 4;
+            this.pnLoading.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 16);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Don\'t close until complete";
+            // 
+            // pbUpload
+            // 
+            this.pbUpload.Location = new System.Drawing.Point(0, 22);
+            this.pbUpload.Name = "pbUpload";
+            this.pbUpload.Size = new System.Drawing.Size(160, 23);
+            this.pbUpload.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(724, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 43);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Upload";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnEditInfo
+            // 
+            this.btnEditInfo.Location = new System.Drawing.Point(724, 29);
+            this.btnEditInfo.Name = "btnEditInfo";
+            this.btnEditInfo.Size = new System.Drawing.Size(160, 43);
+            this.btnEditInfo.TabIndex = 1;
+            this.btnEditInfo.Text = "Sửa";
+            this.btnEditInfo.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel1
             // 
@@ -300,50 +400,15 @@
             this.dtStart.Size = new System.Drawing.Size(261, 22);
             this.dtStart.TabIndex = 2;
             // 
-            // btnEditInfo
+            // btnOpenPDF
             // 
-            this.btnEditInfo.Location = new System.Drawing.Point(724, 29);
-            this.btnEditInfo.Name = "btnEditInfo";
-            this.btnEditInfo.Size = new System.Drawing.Size(160, 43);
-            this.btnEditInfo.TabIndex = 1;
-            this.btnEditInfo.Text = "Sửa";
-            this.btnEditInfo.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(724, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 43);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Upload";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pbUpload
-            // 
-            this.pbUpload.Location = new System.Drawing.Point(0, 22);
-            this.pbUpload.Name = "pbUpload";
-            this.pbUpload.Size = new System.Drawing.Size(160, 23);
-            this.pbUpload.TabIndex = 3;
-            // 
-            // pnLoading
-            // 
-            this.pnLoading.Controls.Add(this.label7);
-            this.pnLoading.Controls.Add(this.pbUpload);
-            this.pnLoading.Location = new System.Drawing.Point(724, 171);
-            this.pnLoading.Name = "pnLoading";
-            this.pnLoading.Size = new System.Drawing.Size(200, 170);
-            this.pnLoading.TabIndex = 4;
-            this.pnLoading.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 16);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Don\'t close until complete";
+            this.btnOpenPDF.Location = new System.Drawing.Point(902, 323);
+            this.btnOpenPDF.Name = "btnOpenPDF";
+            this.btnOpenPDF.Size = new System.Drawing.Size(75, 44);
+            this.btnOpenPDF.TabIndex = 8;
+            this.btnOpenPDF.Text = "Open PDF";
+            this.btnOpenPDF.UseVisualStyleBackColor = true;
+            this.btnOpenPDF.Click += new System.EventHandler(this.btnOpenPDF_Click);
             // 
             // TrangChu
             // 
@@ -356,6 +421,11 @@
             this.Text = "Trang Chủ";
             this.tabTrangchu.ResumeLayout(false);
             this.tpThongtin.ResumeLayout(false);
+            this.tpThongtin.PerformLayout();
+            this.pnlDownload.ResumeLayout(false);
+            this.pnlDownload.PerformLayout();
+            this.pnLoading.ResumeLayout(false);
+            this.pnLoading.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
@@ -367,8 +437,6 @@
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
             this.flowLayoutPanel7.ResumeLayout(false);
-            this.pnLoading.ResumeLayout(false);
-            this.pnLoading.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -403,5 +471,11 @@
         private System.Windows.Forms.Panel pnLoading;
         private System.Windows.Forms.ProgressBar pbUpload;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txbLink;
+        private System.Windows.Forms.Button btnDownload;
+        private System.Windows.Forms.Panel pnlDownload;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ProgressBar pgBDownload;
+        private System.Windows.Forms.Button btnOpenPDF;
     }
 }

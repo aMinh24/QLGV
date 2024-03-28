@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UngDungHoTroGiangVien.CONSTDATA;
 using UngDungHoTroGiangVien.DAO;
 using UngDungHoTroGiangVien.Service;
-
 namespace UngDungHoTroGiangVien
 {
     public partial class LoginAccount : Form
@@ -20,6 +20,7 @@ namespace UngDungHoTroGiangVien
         {
             InitializeComponent();
             LoadCredentials();
+            
         }
         public void LoadCredentials()
         {
@@ -30,6 +31,8 @@ namespace UngDungHoTroGiangVien
         
         private async void buttonLogin_Click(object sender, EventArgs e)
         {
+            //string filePath = CONST.DOWNLOADS + "\\" + "The-Art-of-Game-Design_902853.pdf";
+            //Process.Start(@"cmd.exe ", @"/c " + filePath);
             //string userNameEmail = tBoxLogin.Text;
             string userNameEmail = cbUsername.Text;
             string password = tBoxPassword.Text;
@@ -42,7 +45,7 @@ namespace UngDungHoTroGiangVien
                     SavePassword.SaveCredential(userNameEmail, password, checkboxRemember.Checked);
                     Random ran = new Random();
                     string OTP = ran.Next(1000, 9999).ToString();
-                    EMail.sendMailOTP(userNameEmail, OTP);
+                    MailService.sendMailOTP(userNameEmail, OTP);
 
                     VerifyOTP v = new VerifyOTP(OTP);
                     v.Show();

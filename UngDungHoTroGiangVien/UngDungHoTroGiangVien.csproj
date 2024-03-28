@@ -53,6 +53,15 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Spire.Pdf, Version=10.3.7.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>F:\VS2022\Nuget\Spire.PDFViewer.7.12.11\lib\net46\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Asp, Version=7.12.11.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>F:\VS2022\Nuget\Spire.PDFViewer.7.12.11\lib\net46\Spire.PdfViewer.Asp.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Forms, Version=7.12.11.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>F:\VS2022\Nuget\Spire.PDFViewer.7.12.11\lib\net46\Spire.PdfViewer.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -108,7 +117,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CONST\CONST.cs" />
+    <Compile Include="CONSTDATA\CONST.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DTO\Account.cs" />
@@ -118,7 +127,7 @@
     <Compile Include="LoginAccount.Designer.cs">
       <DependentUpon>LoginAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service\Email.cs" />
+    <Compile Include="Service\MailService.cs" />
     <Compile Include="Service\MegaCloud.cs" />
     <Compile Include="Service\SavePassword.cs" />
     <Compile Include="TrangChu.cs">
@@ -141,6 +150,12 @@
     <Compile Include="VerifyOTP.Designer.cs">
       <DependentUpon>VerifyOTP.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPdf.Designer.cs">
+      <DependentUpon>ViewPdf.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LoginAccount.resx">
       <DependentUpon>LoginAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VerifyOTP.resx">
       <DependentUpon>VerifyOTP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPdf.resx">
+      <DependentUpon>ViewPdf.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
